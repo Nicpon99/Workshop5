@@ -1,9 +1,6 @@
 package pl.coderslab.Controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.Beans.Book;
 import pl.coderslab.Beans.BookService;
 import pl.coderslab.Beans.MockBookService;
@@ -24,9 +21,13 @@ public class BookController {
     }
 
     @GetMapping("")
-    @ResponseBody
     public
     List<Book> getList() {
         return bookService.getBooks();
+    }
+
+    @GetMapping("/{id}")
+    public Book getBook(@PathVariable("id") int id){
+        return bookService.getBook(id);
     }
 }
