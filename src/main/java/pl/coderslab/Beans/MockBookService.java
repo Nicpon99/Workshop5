@@ -66,6 +66,21 @@ public class MockBookService implements BookService{
         }
     }
 
+    @Override
+    public void deleteBook(int id) {
+        boolean check = true;
+        for (Book b : books) {
+            if (id == b.getId()){
+                books.remove(b);
+                check = false;
+                break;
+            }
+        }
+        if (check){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The book with this ID doesn't exist in the database");
+        }
+    }
+
 
     public void setBooks(List<Book> books) {
         this.books = books;
