@@ -36,4 +36,9 @@ public class BookController {
         bookService.addBook(book);
     }
 
+    @PutMapping("")
+    public void editBook(@RequestBody Book book){
+        bookService.editBook(book);
+    }
+
 }

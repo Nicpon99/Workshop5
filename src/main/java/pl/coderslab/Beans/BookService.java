@@ -8,4 +8,6 @@ public interface BookService {
     Book getBook(int id);
 
     void addBook(Book book);
+
+    void editBook(Book book);
 }
