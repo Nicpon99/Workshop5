@@ -6,4 +6,6 @@ public interface BookService {
     List<Book> getBooks();
 
     Book getBook(int id);
+
+    void addBook(Book book);
 }

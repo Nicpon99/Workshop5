@@ -30,4 +30,10 @@ public class BookController {
     public Book getBook(@PathVariable("id") int id){
         return bookService.getBook(id);
     }
+
+    @PostMapping("")
+    public void addBook(@RequestBody Book book) {
+        bookService.addBook(book);
+    }
+
 }

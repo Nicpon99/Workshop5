@@ -11,6 +11,8 @@ import java.util.List;
 public class MockBookService implements BookService{
     private List<Book> books;
 
+    private static Long nextId = 4L;
+
     public MockBookService() {
         books = new ArrayList<>();
         books.add(new Book(1L, "9788324631766", "Thiniking in Java", "Bruce Eckel", "Helion", "programming"));
@@ -39,6 +41,12 @@ public class MockBookService implements BookService{
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The book with this ID doesn't exist in the database");
         }
+    }
+
+    @Override
+    public void addBook(Book book) {
+        book.setId(nextId++);
+        books.add(book);
     }
 
     public void setBooks(List<Book> books) {
