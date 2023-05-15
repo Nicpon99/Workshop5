@@ -1,4 +1,4 @@
-package pl.coderslab.App;
+package pl.coderslab.Beans;
 
 public class Book {
     private Long id;
